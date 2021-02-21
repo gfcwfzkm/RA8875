@@ -2,7 +2,7 @@
  * RA8875.c
  * Version 0.5
  * Created: 12.11.2019 15:12:02
- *  Author: M02875
+ *  Author: gfcwfzkm
  */ 
 
 #include "RA8875.h"
@@ -17,7 +17,7 @@
 
 #define DIROUTS(PORT,bits)	PORT.DIRSET = (bits)
 #define DIRINS(PORT,bits)	PORT.DIRCLR = (bits)
-#define CLRBITS(PORT,bits)	PORT.OUTCLR = (bits)	// Bit-löschen
+#define CLRBITS(PORT,bits)	PORT.OUTCLR = (bits)	// Bit-lÃ¶schen
 #define SETBITS(PORT,bits)	PORT.OUTSET = (bits)	// Bit-setzten
 #define TSTBITS(PORT,bits)	PORT.IN & (bits)		// Bit-lesen
 
@@ -71,7 +71,7 @@ void RA8875_PLL_init(void)
 {
 	switch (_size)
 	{
-		// To-Do: Weitere Displays hinzufügen
+		// To-Do: Weitere Displays hinzufÃ¼gen
 		case RA8875_800x480:
 			// Werte vom Democode des Buydisplay Herstellers: https://www.buydisplay.com/download/democode/ER-TFTM070-5_8-bit-8080_DemoCode.txt
 			RA8875_writeReg(RA8875_PLLC1, RA8875_PLLC1_PLLDIV1 | 0x0C);
@@ -110,7 +110,7 @@ void RA8875_init(enum RA8875_sizes dispSize)
 			pll_div2		= RA8875_PLLC2_DIV4;
 			break;
 		default:
-			// Nicht unterstütztes display!
+			// Nicht unterstÃ¼tztes display!
 			return;
 	}
 	
@@ -778,7 +778,7 @@ void RA8875_touchEnable(uint8_t _enable)
 		RA8875_writeReg(RA8875_TPCR0, RA8875_TPCR0_TOUCH_ENABLE | _adcSample | _adcClk);
 		// Automodus einstellen
 		RA8875_writeReg(RA8875_TPCR1, RA8875_TPCR1_AUTOMODE | RA8875_TPCR1_DEBOUNCE_EN);
-		// Interrupt einschalten (? Muss wohl auch für's Polling eingschaltet)
+		// Interrupt einschalten (? Muss wohl auch fÃ¼r's Polling eingschaltet)
 		RA8875_writeReg(RA8875_INTC1, RA8875_readReg(RA8875_INTC1) | RA8875_INTC1_EN_TOUCH_INT);
 		_touchEnabed = 1;
 	}
