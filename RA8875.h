@@ -8,7 +8,7 @@
  * - 16bit Interface
  * - Frame switching
  * Created: 12.11.2019 15:12:15
- *  Author: M02875
+ *  Author: gfcwfzkm
  */ 
 
 
@@ -108,7 +108,7 @@ typedef struct {
 typedef struct {
 	uint16_t maxSamples;	// Anzahl Messungen, muss mindestens 5 sein. Muss vom Benutzer gesetzt werden
 	int16_t touchTolerance;	// Toleranz in Pixel, muss mindestens 1 sein. Muss vom Benutzer gesetzt werden
-	uint8_t touched:1;		// Gibt an, ob der Touchscreen gedrückt ist und die Koordinaten gültig sind
+	uint8_t touched:1;		// Gibt an, ob der Touchscreen gedrÃ¼ckt ist und die Koordinaten gÃ¼ltig sind
 	RA8875_point filteredTouch; // Die gefilterten Koordinaten in Pixel
 	int32_t sampledTouchX;
 	int32_t sampledTouchY;
@@ -130,15 +130,15 @@ enum RA8875_status RA8875_readStatus(void);		// Statusregister lesen
 void RA8875_waitReg(uint8_t reg, uint8_t flag);
 void RA8875_displayOnOff(uint8_t _onoff);		// Display ein / ausschalten
 void RA8875_setMode(enum RA8875_dispMode textMode);// Text oder Grafikmodus
-enum RA8875_dispMode RA8875_getMode(void);		// Aktueller Modus zurückgeben
-void RA8875_clearMemory(uint8_t fbg);			// Displayspeicher löschen. 
+enum RA8875_dispMode RA8875_getMode(void);		// Aktueller Modus zurÃ¼ckgeben
+void RA8875_clearMemory(uint8_t fbg);			// Displayspeicher lÃ¶schen. 
 //-------------- AREA ----------------------------------------------------------------
-void RA8875_setActiveWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1);	// Zeichenfläche auswählen 
-void RA8875_resetActiveWindow(void);			// Das gesamte Display auswählen
-void RA8875_getActiveWindow(uint16_t *x0, uint16_t *y0, uint16_t *x1, uint16_t *y1);				// Gibt die aktuell ausgewählte Zeichenfläche zurück.
-void RA8875_clearActiveWindow(uint8_t fbg);		// Zeichenfläche löschen
+void RA8875_setActiveWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1);	// ZeichenflÃ¤che auswÃ¤hlen 
+void RA8875_resetActiveWindow(void);			// Das gesamte Display auswÃ¤hlen
+void RA8875_getActiveWindow(uint16_t *x0, uint16_t *y0, uint16_t *x1, uint16_t *y1);				// Gibt die aktuell ausgewÃ¤hlte ZeichenflÃ¤che zurÃ¼ck.
+void RA8875_clearActiveWindow(uint8_t fbg);		// ZeichenflÃ¤che lÃ¶schen
 uint16_t RA8875_width(void);					// Displaybreite in Pixels
-uint16_t RA8875_height(void);					// Displayhöhe in Pixels
+uint16_t RA8875_height(void);					// DisplayhÃ¶he in Pixels
 //-------------- COLORS ---------------------------------------------------------------
 void RA8875_setFColor(uint8_t fgColor);
 void RA8875_setBColor(uint8_t bgColor);
@@ -147,7 +147,7 @@ void RA8875_transparentOnOff(uint8_t _transOn);
 void RA8875_setColor(uint8_t fgColor, uint8_t bgColor, uint8_t Transparent);	// (Text)Farben
 //-------------- TEXT ----------------------------------------------------------------
 void RA8875_uploadCustomChar(const uint8_t symbol[], uint8_t adr);	// Eigenes Symbol (8bit x 16, Addresse 0-255)
-void RA8875_printCustomChar(uint8_t _adr, uint8_t _additionalChars);// Eigenes Symbol anzeigen. Bei breiten Symbolen, Anzahl zusätzliche Symbol angeben
+void RA8875_printCustomChar(uint8_t _adr, uint8_t _additionalChars);// Eigenes Symbol anzeigen. Bei breiten Symbolen, Anzahl zusÃ¤tzliche Symbol angeben
 void RA8875_cursorBlink(uint8_t _blinkRate, uint8_t _blinkOnOff, enum RA8875_cursor cursorType); // Cursor ein/ausschalten und konfigurieren
 void RA8875_setTextCursor(uint16_t x0, uint16_t y0);				// TextCursor Position
 void RA8875_setTextSizeEnlargement(uint8_t horizontal, uint8_t vertical);	// Multiplikator (0 = x1, 3 = x4)
@@ -163,7 +163,7 @@ void RA8875_drawPixel(uint16_t x0, uint16_t y0, uint8_t color);		// Pixel an spe
 void RA8875_drawLine(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint8_t color); // Eine Linie zeichnen
 void RA8875_drawLineAngle(uint16_t x0, uint16_t y0, float angle, uint16_t start, uint16_t length, uint16_t color);
 void RA8875_drawRect(uint16_t x0, uint16_t y0, uint16_t w, uint16_t h, uint8_t color, uint8_t filled); // Ein Rechteck zeichnen
-void RA8875_fillRect(uint16_t x0, uint16_t y0, uint16_t w, uint16_t h, uint8_t color); // Ein gefülltes Rechteck zeichnen
+void RA8875_fillRect(uint16_t x0, uint16_t y0, uint16_t w, uint16_t h, uint8_t color); // Ein gefÃ¼lltes Rechteck zeichnen
 void RA8875_drawCircle(uint16_t x0, uint16_t y0, uint8_t r, uint8_t color, uint8_t filled); // Ein Kreis zeichnen
 void RA8875_drawTriangle(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color, uint16_t filled); // Ein Dreieck zeichnen
 void RA8875_drawEllipse(uint16_t x0, uint16_t y0, uint16_t r_w, uint16_t r_h, uint8_t color, uint8_t filled);			// untested
@@ -180,7 +180,7 @@ uint8_t RA8875_touchFiltered(RA8875_touch *touchPointer);
 //-------------- GPIO & PWM ----------------------------------------------------------------
 void RA8875_GPIO(uint8_t on);
 void RA8875_PWMinit(uint8_t pwmOutput, enum RA8875_pwmDiv clkDiv, uint8_t onOff); // PWM 1 ist die Hintergrundbeleuchtung, CLKdiv von 1024 bei 20MHz empfohlen
-void RA8875_PWMout(uint8_t pwmOutput, uint8_t pwmValue); // PWM-Wert von 0 bis 255 für PWM Ausgang 1 oder 2.
+void RA8875_PWMout(uint8_t pwmOutput, uint8_t pwmValue); // PWM-Wert von 0 bis 255 fÃ¼r PWM Ausgang 1 oder 2.
 
 /*
  * 5-2 System & Configuration Registers
